@@ -4,13 +4,13 @@ class BookController < ApplicationController
 
   # GET /books
   def index
-    render :json => User.all
+    render json: User.all
   end
 
   # POST /book
   def create
     @book = Todo.create!(book_params)
-    render :json => @book
+    render json: @book
   end
 
   # DELETE /book:id
