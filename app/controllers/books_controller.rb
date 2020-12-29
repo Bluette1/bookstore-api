@@ -1,19 +1,19 @@
-class BookController < ApplicationController
+class BooksController < ApplicationController
   # before_action :set_todo
   before_action :set_book, only: [:destroy]
 
   # GET /books
   def index
-    render json: User.all
+    render json: Book.all
   end
 
-  # POST /book
+  # POST /books
   def create
     @book = Todo.create!(book_params)
     render json: @book
   end
 
-  # DELETE /book:id
+  # DELETE /books:id
   def destroy
     @book.destroy
     head :no_content
