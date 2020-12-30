@@ -1,5 +1,7 @@
 class BooksController < ApplicationController
   # before_action :set_todo
+  skip_before_action :verify_authenticity_token
+
   before_action :set_book, only: [:destroy]
 
   # GET /books
@@ -9,8 +11,8 @@ class BooksController < ApplicationController
 
   # POST /books
   def create
-    @book = Todo.create!(book_params)
-    render json: @book
+    @book = Book.create!(book_params)
+    render json: @book  
   end
 
   # DELETE /books:id
@@ -22,7 +24,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.permit(:title, :category, :author)
+    params.require(:book).permit(:title, :category, :author)
   end
 
   def set_book
