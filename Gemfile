@@ -48,5 +48,5 @@ end
 gem 'rubocop', '~>0.81.0'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'devise'
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'rack-cors'
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

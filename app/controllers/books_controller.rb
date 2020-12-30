@@ -12,7 +12,7 @@ class BooksController < ApplicationController
   # POST /books
   def create
     @book = Book.create!(book_params)
-    render json: @book  
+    render json: @book
   end
 
   # DELETE /books:id
