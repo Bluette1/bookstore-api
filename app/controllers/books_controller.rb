@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  # before_action :set_todo
   skip_before_action :verify_authenticity_token
 
   before_action :set_book, only: [:destroy]
@@ -28,6 +27,6 @@ class BooksController < ApplicationController
   end
 
   def set_book
-    @book = Book.find(params[:book_id])
+    @book = Book.find(params[:id].to_i)
   end
 end
