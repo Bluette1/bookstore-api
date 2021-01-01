@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_29_110953) do
+ActiveRecord::Schema.define(version: 2021_01_01_033735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 2020_12_29_110953) do
     t.string "category", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "pagesRead", default: 0
+    t.integer "totalPages", default: 100
+    t.string "currentChapter", default: "Introduction"
   end
 
 end

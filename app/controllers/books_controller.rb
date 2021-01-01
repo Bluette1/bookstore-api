@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   skip_before_action :verify_authenticity_token
 
-  before_action :set_book, only: [:destroy]
+  before_action :set_book, only: %i[destroy update]
 
   # GET /books
   def index
@@ -14,6 +14,12 @@ class BooksController < ApplicationController
     render json: @book
   end
 
+  # PUT /books/:id
+  def update
+    @book.update(book_params)
+    render json: @book
+  end
+
   # DELETE /books:id
   def destroy
     @book.destroy
@@ -23,7 +29,9 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :category, :author)
+    params.require(:book).permit(
+      :title, :category, :author, :pagesRead, :totalPages, :currentChapter
+    )
   end
 
   def set_book
