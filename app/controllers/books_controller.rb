@@ -32,7 +32,7 @@ class BooksController < ApplicationController
 
   def book_params
     params.require(:book).permit(
-      :title, :category, :author, :pagesRead, :totalPages, :currentChapter
+      :title, :category, :author, :totalPages
     )
   end
 
