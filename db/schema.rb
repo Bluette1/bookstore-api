@@ -21,11 +21,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_115605) do
     t.string "category", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "pagesRead", default: 0
     t.integer "totalPages", default: 100
-    t.string "currentChapter", default: "Introduction"
-    t.bigint "user_id"
-    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "readings", force: :cascade do |t|
@@ -34,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_115605) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "pagesRead", default: 0
-    t.string "currentChapter", default: "100"
+    t.string "currentChapter", default: "Intro"
     t.index ["book_id"], name: "index_readings_on_book_id"
     t.index ["user_id"], name: "index_readings_on_user_id"
   end
@@ -56,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_01_19_115605) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "books", "users"
   add_foreign_key "readings", "books"
   add_foreign_key "readings", "users"
 end
